@@ -1,0 +1,21 @@
+<div> <button class=" button btn btn-primary" routerLink="/" >HOME</button></div>
+
+<div *ngIf=showform class="container">
+  
+
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <label for="firstname">Firstname:</label>
+    <input type="text" id="firstname" formControlName="firstname" required><br>
+  
+    <label for="lastname">Lastname:</label>
+    <input type="text" id="lastname" formControlName="lastname"  required><br>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" required><br>
+  
+    <button type="submit">Register</button>
+  </form>
+  </div>
+  <div *ngIf=!showform class="container">
+<p>RegisterForm Successfully</p>
+  </div>

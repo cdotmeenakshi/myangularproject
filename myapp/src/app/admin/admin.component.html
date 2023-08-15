@@ -1,0 +1,23 @@
+<div> <button class=" button btn btn-primary" routerLink="/" >HOME</button></div>
+
+<div class="container">
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allUserList">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td><button class="btn btn-danger" (click)="deletUser(user.id)">Delete</button></td>
+            <!-- <td><button class="btn btn-danger" (click)="editUser(user.id)">Edit</button></td> -->
+        
+          </tr>
+        </tbody>
+      </table>
+</div>
