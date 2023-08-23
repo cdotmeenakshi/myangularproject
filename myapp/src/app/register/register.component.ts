@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Userdetail } from '../userdetail';
 import { DatastoreService } from '../datastore.service';
 
@@ -10,10 +11,12 @@ import { DatastoreService } from '../datastore.service';
 })
 export class RegisterComponent {
   showform:Boolean=true;
+  
+  
  
 
   registrationForm:FormGroup= new FormGroup({});
-  constructor(private fb: FormBuilder, private datastore:DatastoreService) {}
+  constructor(private fb: FormBuilder,  private route: ActivatedRoute, private datastore:DatastoreService) {}
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -21,6 +24,8 @@ export class RegisterComponent {
       lastname: ['', Validators.required],
       password: ['', Validators.required]
     });
+  
+
   }
 
 
@@ -32,4 +37,5 @@ export class RegisterComponent {
     this.datastore.setUser(newUserDetail);
     this.showform=false;
   }
+
 }
